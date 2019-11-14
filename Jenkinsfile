@@ -13,7 +13,7 @@ node {
    }
    stage('Sonar Cloud') {
 	   withEnv(["MVN_HOME=$mvnHome"]) {
-	   sh 'cd server && "$MVN_HOME/bin/mvn" verify sonar:sonar -Dsonar.projectKey=Cristian78_TrabajoIntegrador-IngSoft3 -Dsonar.organization=cristian78 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=b2c43d17fb61fd126d9dd17a91f9043e32170f9d -Dmaven.test.failure.ignore=true'
+	   sh 'cd server && "$MVN_HOME/bin/mvn" verify sonar:sonar -Dsonar.projectKey=Cristian78_TrabajoIntegrador-IngSoft3 -Dsonar.organization=cristian78 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=07df0dcc1142ecfe155de768407f1a3f5e0facd0 -Dmaven.test.failure.ignore=true'
 	}
    }
    stage('Push Image') {
