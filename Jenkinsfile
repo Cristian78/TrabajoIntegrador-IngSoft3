@@ -8,18 +8,18 @@ node {
    stage('Build') {
       withEnv(["MVN_HOME=$mvnHome"]) {
         sh 'cd server && "$MVN_HOME/bin/mvn" -Dmaven.test.failure.ignore clean package'
-	//	image = docker.build("cristian78/trabajointegradoringsoft3")
+		image = docker.build("cristian78/trabajointegradoringsoft3")
       }
    }
    stage('Sonar Cloud') {
-	 //withEnv(["MVN_HOME=$mvnHome"]) {
-	 //   sh 'cd server && "$MVN_HOME/bin/mvn" verify sonar:sonar -Dsonar.projectKey=Cristian78_TrabajoIntegrador-IngSoft3 -Dsonar.organization=cristian78 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=c69a2068552a560120f4d5a31b244b31dcd2d567 -Dmaven.test.failure.ignore=true'
-	//}
+	 withEnv(["MVN_HOME=$mvnHome"]) {
+	    sh 'cd server && "$MVN_HOME/bin/mvn" verify sonar:sonar -Dsonar.projectKey=Cristian78_TrabajoIntegrador-IngSoft3 -Dsonar.organization=cristian78 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=c69a2068552a560120f4d5a31b244b31dcd2d567 -Dmaven.test.failure.ignore=true'
+	}
    }
    stage('Push Image') {
-     //docker.withRegistry('', 'dockerhub') {
-	 //  image.push()
-	 //}
+     docker.withRegistry('', 'dockerhub') {
+	   image.push()
+	 }
    }
    stage('Results') {
       //archiveArtifacts 'server/target/*.jar'
