@@ -1,6 +1,7 @@
 # TrabajoIntegrador-IngSoft3
 
 Requerimientos, el trabajo deberá:
+
 - Utilizar la versión de payroll server trabajada en clase
 - Estar en un repositorio de Git.
 - Tener la construcción de la salida automatizada, utilizando alguna de las herramientas vistas en clase (Jenkins, AppVeyor, CircleCI)
