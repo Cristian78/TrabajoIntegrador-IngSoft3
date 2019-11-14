@@ -27,10 +27,10 @@ node {
    }
    stage('Deploy') {
      withCredentials([usernamePassword(credentialsId: 'herokuCredentials', passwordVariable: 'password', usernameVariable: 'user')]) {
-	   //sh 'docker login --username=_ --password=${password} registry.heroku.com'
-	   //sh 'docker tag  registry.heroku.com/rocky-brushlands-25964/web'
-	   //sh 'docker push registry.heroku.com/rocky-brushlands-25964/web'
-	   //sh 'heroku container:release web --app=rocky-brushlands-25964'
+	   sh 'docker login --username=_ --password=${password} registry.heroku.com'
+	   sh 'docker tag Cristian78/TrabajoIntegrador-IngSoft3.git registry.heroku.com/boiling-refuge-46340/web'
+	   sh 'docker push registry.heroku.com/boiling-refuge-46340/web'
+	   sh 'heroku container:release web --app=boiling-refuge-46340'
     }
   }
 }
